@@ -1,6 +1,6 @@
-<div class="flex flex-col justify-center items-center h-screen ">
-  <div class="border p-6 rounded-lg shadow-lg text-center mb-4 ">
-    <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">助けてもらう！</button>
-    <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">私が助ける！</button>
+<div class="flex flex-col justify-center items-center h-screen">
+  <div class="border p-6 rounded-lg shadow-lg text-center mb-4 flex flex-row justify-center items-center">
+    <%= button_to "助けてもらう！", new_question_path, method: :get, class: "btn btn-xs sm:btn-sm md:btn-md lg:btn-lg mr-4" %>
+    <%= button_to "私が助ける！", "#", method: :get, class: "btn btn-xs sm:btn-sm md:btn-md lg:btn-lg" %>
   </div>
 </div>
