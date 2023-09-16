@@ -82,4 +82,4 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %> #これを記述するだけで、あとはherokuがよしなにやってくれます
+  database: sample_app_development #これを記述するだけで、あとはherokuがよしなにやってくれます
