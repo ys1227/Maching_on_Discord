@@ -82,4 +82,6 @@ test:
 #
 production:
   <<: *default
-  database: sample_app_development #これを記述するだけで、あとはherokuがよしなにやってくれます
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
