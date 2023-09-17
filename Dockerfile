@@ -22,6 +22,9 @@ RUN bundle install
 # ホストのカレントディレクトリをコンテナにコピー
 COPY . /sample-app/
 
+# yarn.lockからインストール
+RUN yarn install --frozen-lockfile
+
 # entrypoint.shをコンテナ内の/usr/binにコピーし、実行権限を与える
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
