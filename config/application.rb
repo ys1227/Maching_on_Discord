@@ -18,7 +18,6 @@ module SampleApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.hosts << "sample-app-8ib5.onrender.com"
-
+    config.hosts << "sample-app-qllg.onrender.com"
   end
 end
