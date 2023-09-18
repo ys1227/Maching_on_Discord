@@ -1,6 +1,12 @@
-<div class="flex flex-col justify-center items-center h-screen">
-  <div class="border p-6 rounded-lg shadow-lg text-center mb-4 flex flex-row justify-center items-center">
-    <%= button_to "助けてもらう！", new_question_path, method: :get, class: "btn btn-xs sm:btn-sm md:btn-md lg:btn-lg mr-4" %>
-    <%= button_to "私が助ける！", "#", method: :get, class: "btn btn-xs sm:btn-sm md:btn-md lg:btn-lg" %>
+
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content text-center">
+    <div class="max-w-md">
+      <h1 class="text-5xl font-bold">質問マッチング</h1>
+      <p class="py-6">discordで質問したり雑談をする仲間を集めに行こう</p>
+      <%=link_to "質問する", new_question_path, class:"btn btn-primary"%>
+      <%=link_to "質問する", questions_path, class:"btn btn-primary"%>
+    </div>
   </div>
+  
 </div>
