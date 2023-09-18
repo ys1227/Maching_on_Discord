@@ -1,7 +1,6 @@
-<div class="min-h-screen flex flex-col justify-between">
-  <div class="max-w-screen-lg mx-auto py-8">
+<div class="min-h-screen flex flex-col justify-center items-center">
+  <div class="w-full max-w-screen-md p-6">
     <h1 class="text-3xl font-bold mb-6">新しい投稿</h1>
-
     <div class="bg-white p-6 rounded-lg shadow-lg">
       <%= form_with model: @question do |form| %>
       <div class="mb-6">
@@ -23,6 +22,7 @@
       <div class="text-right">
         <%= form.submit '投稿', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
       </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
