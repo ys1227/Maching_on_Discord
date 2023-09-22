@@ -5,7 +5,7 @@
   </div>
 
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <%= form_with model:@user, class: "space-y-6", method: :post do |f| %>
+    <%= form_with model:@user, class: "space-y-6",data: { turbo: false }, method: :post do |f| %>
       <div>
         <div class="flex items-center justify-between">
           <%= f.label :first_name, class: "block text-sm font-medium leading-6 text-gray-900" %>
