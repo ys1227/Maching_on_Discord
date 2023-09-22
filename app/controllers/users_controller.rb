@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to questions_path, success: '新規登録に成功しました'
     else
-      flash.new[:danger] = 'ユーザー登録に失敗しました'
+      flash.now[:danger] = 'ユーザー登録に失敗しました'
       render :new
     end
   end
