@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<html data-theme="lemonade"></html>
   <head>
     <title>SampleApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,13 +11,14 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <header>
-  <%= render 'shared/header' %>
-  </header>
   <body>
-    <%= yield %>
-  </body>
-  <footer>
+  <%if logged_in?%>
+    <%= render 'shared/header' %>
+  <%else%>
+    <%= render 'shared/before_login_header' %>
+  <%end%>
+  <%= render 'shared/flash_message' %>
+  <%= yield %>
   <%= render 'shared/footer' %>
-  </footer>
+  </body>
 </html>

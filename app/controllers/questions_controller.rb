@@ -1,10 +1,11 @@
 class QuestionsController < ApplicationController
+  skip_before_action :require_login,only: %i[index]
   def new
     @question = Question.new
   end
 
   def index
-    @questions = Question.all
+    @questions = Question.includes(:user)
   end
 
   def show
@@ -24,10 +25,11 @@ class QuestionsController < ApplicationController
   end
 
   def create 
-    @question = Question.new(question_params)
+    @question = current_user.questions.build(question_params)
     if @question.save
-      redirect_to questions_path
+      redirect_to questions_path, success: '投稿が成功しました'
     else
+      flash.now[:danger] ='投稿が失敗しました' 
       render :new, status: :unprocessable_entity
     end
   end
