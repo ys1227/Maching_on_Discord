@@ -1,6 +1,7 @@
 class Question < ApplicationRecord
+  belongs_to :user
   has_many :category
 
-  validates :title, presence: true
-  validates :content, presence: true
+  validates :title, presence: true, length: { maximum: 100 }
+  validates :content, presence: true, length: { maximum: 500 }
 end

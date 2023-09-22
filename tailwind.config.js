@@ -8,7 +8,8 @@ module.exports = {
   ],
   plugins: [
     require("daisyui"),
-    require('preline/plugin')
+    require('preline/plugin'),
+    require('@tailwindcss/forms'),
   ],
 
 }

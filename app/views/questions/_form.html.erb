@@ -2,25 +2,20 @@
   <div class="w-full max-w-screen-md p-6">
     <h1 class="text-3xl font-bold mb-6">新しい投稿</h1>
     <div class="bg-white p-6 rounded-lg shadow-lg">
-      <%= form_with model: @question do |form| %>
+      <%= form_with model: @question,data: { turbo: false } do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
       <div class="mb-6">
-        <%= form.label :title, class: "block text-xl text-gray-700 font-bold mb-2" %>
-        <%= form.text_field :title, class: "block w-full px-4 py-2 border rounded-md shadow-inner focus:outline-none focus:border-blue-500" %>
-        <% @question.errors.full_messages_for(:title).each do |message| %>
-          <div><%= message %></div>
-          <% end %>
+        <%= f.label :title, class: "block text-xl text-gray-700 font-bold mb-2" %>
+        <%= f.text_field :title, class: "block w-full px-4 py-2 border rounded-md shadow-inner focus:outline-none focus:border-blue-500" %>
       </div>
 
       <div class="mb-6">
-        <%= form.label :content, class: "block text-xl text-gray-700 font-bold mb-2" %>
-        <%= form.text_area :content, id: 'markdown-editor', class: "block w-full px-4 py-3 border rounded-md shadow-inner focus:outline-none focus:border-blue-500", rows: 10 %>
-        <% @question.errors.full_messages_for(:content).each do |message| %>
-          <div><%= message %></div>
-          <% end %>
+        <%= f.label :content, class: "block text-xl text-gray-700 font-bold mb-2" %>
+        <%= f.text_area :content, id: 'markdown-editor', class: "block w-full px-4 py-3 border rounded-md shadow-inner focus:outline-none focus:border-blue-500", rows: 10 %>
       </div>
 
       <div class="text-right">
-        <%= form.submit '投稿', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+        <%= f.submit '投稿', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
       </div>
       <% end %>
     </div>
