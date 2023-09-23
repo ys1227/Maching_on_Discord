@@ -12,8 +12,10 @@
           <p class="leading-relaxed mb-3">
            <%=@question.content%>
           </p>
+          <%if logged_in?%>
           <%= link_to "削除する", question_path(@question), data: {turbo_method: :delete} %> 
           <%= link_to "編集する", edit_question_path(@question)%>
+          <%end%>
         </div>
       </div>
     </div>
