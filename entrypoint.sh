@@ -10,7 +10,8 @@ rm -f /sample-app/tmp/pids/server.pid
 if [ "$RAILS_ENV" = "production" ]; then
 bundle exec rails assets:clobber
 bundle exec rails assets:precompile
-bundle exec rails db:migrate
+#bundle exec rails db:migrate
+DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rake db:migrate:reset
 fi
 
 
