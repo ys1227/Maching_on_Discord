@@ -35,7 +35,7 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
-
+cd
     if @question.update(question_params)
       redirect_to questions_path
     else
