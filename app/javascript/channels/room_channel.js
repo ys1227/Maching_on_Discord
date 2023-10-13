@@ -3,12 +3,11 @@ import consumer from "./consumer"
 document.addEventListener("turbo:load", () => {
 // 「const appRoom =」を追記
 const appRoom = consumer.subscriptions.create("RoomChannel", {
-  // 省略
 
   received(data) {
-    console.log(data)
-    const messages = document.getElementById("messages");
+    const messages = document.getElementById("chat chat-start");
     console.log(messages)
+    console.log(data)
     messages.insertAdjacentHTML('beforeend', data['body']);
   },
 
