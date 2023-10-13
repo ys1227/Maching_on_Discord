@@ -7,7 +7,9 @@ class RoomChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
+  # jsのspeak関数のperformによって呼び出される
+  # この後receivedに渡せるようにデータ保存後にmessege.rbのjobが機能してreceivedへ
   def speak(data)
-    ActionCable.server.broadcast("room_channel", { body: data['message'] })
-    end
+    Message.create! content: data['message']
+  end
 end

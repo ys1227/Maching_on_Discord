@@ -7,12 +7,12 @@ const appRoom = consumer.subscriptions.create("RoomChannel", {
 
   received(data) {
     console.log(data)
-    return alert(data['body']);
+    const messages = document.getElementById("messages");
+    console.log(messages)
+    messages.insertAdjacentHTML('beforeend', data['body']);
   },
 
   speak: function(message) {
-    console.log(message);
-    console.log(this)
     return this.perform('speak', {message: message});
   }
 });
