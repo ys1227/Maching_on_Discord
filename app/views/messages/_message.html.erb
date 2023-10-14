@@ -1,3 +1,11 @@
-<div class="chat-bubble">
-  <p><%= message.content %></p>
+<div class="message">
+  <% if current_user %>
+        <p><%= message.content %></p>
+      </div>
+    </div>
+  <% else %>
+    <div class="message-others" data-user-id="<%= message.user_id %>">
+      <%= message.content %>
+    </div>
+  <% end %>
 </div>

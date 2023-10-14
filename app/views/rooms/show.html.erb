@@ -1,5 +1,5 @@
 <h1>Chat room</h1>
-<div id="chat chat-start">
+<div id="messages" data-current-user-id="<%= current_user.id %>" data-question-id="<%= @question.id %>">
   <%= render @messages %>
 </div>
 <form>

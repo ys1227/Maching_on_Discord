@@ -1,18 +1,32 @@
 import consumer from "./consumer"
 
 document.addEventListener("turbo:load", () => {
+  const messages = document.querySelector('#messages');
+  if (messages === null) {
+    return;
+  }
+  const currentUserId = messages.dataset.currentUserId;
+  const questionId = messages.dataset.questionId;
+  console.log("notnull")
+
+
+
 // 「const appRoom =」を追記
-const appRoom = consumer.subscriptions.create("RoomChannel", {
+  const appRoom = consumer.subscriptions.create({channel:"RoomChannel", question_id: questionId},{
 
   received(data) {
-    const messages = document.getElementById("chat chat-start");
-    console.log(messages)
+    console.log("accepted")
+    console.log(data)
+    const messages = document.getElementById("messages");
     console.log(data)
     messages.insertAdjacentHTML('beforeend', data['body']);
   },
 
   speak: function(message) {
-    return this.perform('speak', {message: message});
+    console.log(message)
+    console.log(currentUserId)
+    console.log(questionId)
+    return this.perform('speak', {message: message, question_id: questionId});
   }
 });
 
