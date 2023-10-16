@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   root :to => 'tops#index'
 
   mount ActionCable.server => '/cable'
-  get 'rooms/show' => 'rooms#show', :as => :chat
+  get 'rooms/show/:id' => 'rooms#show', :as => :chat
 end
