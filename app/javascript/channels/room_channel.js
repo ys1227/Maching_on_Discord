@@ -9,16 +9,14 @@ document.addEventListener("turbo:load", () => {
   const questionId = messages.dataset.questionId;
   console.log("notnull")
 
-
-
 // 「const appRoom =」を追記
+// ここで配信するチャンネルを作成してチャンネルにquestionIdを持たせ、購読しているクライアントに配信している？
   const appRoom = consumer.subscriptions.create({channel:"RoomChannel", question_id: questionId},{
 
   received(data) {
     console.log("accepted")
     console.log(data)
     const messages = document.getElementById("messages");
-    console.log(data)
     messages.insertAdjacentHTML('beforeend', data['body']);
   },
 

@@ -1,7 +1,6 @@
 class RoomChannel < ApplicationCable::Channel
   def subscribed
-    question = Question.find(params[:id])
-    stream_for question
+    stream_from "chat_#{params[:question_id]}"
   end
 
   def unsubscribed
